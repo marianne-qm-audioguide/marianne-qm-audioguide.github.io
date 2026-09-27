@@ -1,4 +1,18 @@
 <header class="site-header">
+
+  <div class="language-selector">
+    <label for="language-select" class="language-label">
+      Language
+    </label>
+
+    <select id="language-select" aria-label="Select language">
+      {% for language in site.languages %}
+        <option value="{{ language.code }}">
+          {{ language.name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
   
   <a class="site-title" href="{{ site.baseurl }}/">
     <img src="{{ site.baseurl }}{{site.logo}}" alt="{{site.title}} logo" class="site-logo"/>
