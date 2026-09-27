@@ -16,11 +16,11 @@ ar:
   update_required: "مطلوب تحديث"
   audio_error: "لتشغيل الصوت، يرجى استخدام متصفح يدعم HTML5 Audio."
 
-fr:
-  language_name: "Français"
-  select_language: "Langue"
-  menu: "Guide audio"
-  previous: "Précédent"
-  next: "Suivant"
-  update_required: "Mise à jour requise"
-  audio_error: "Pour lire l'audio, utilisez un navigateur compatible avec HTML5 Audio."
+fil:
+  language_name: "Filipino"
+  select_language: "Wika"
+  menu: "Gabay na Audio"
+  previous: "Nakaraan"
+  next: "Susunod"
+  update_required: "Kailangang Mag-update"
+  audio_error: "Upang i-play ang audio, mangyaring gumamit ng browser na sumusuporta sa HTML5 Audio."
