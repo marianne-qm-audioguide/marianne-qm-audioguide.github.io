@@ -1,0 +1,26 @@
+en:
+  language_name: "English"
+  select_language: "Language"
+  menu: "Audio Guide"
+  previous: "Previous"
+  next: "Next"
+  update_required: "Update Required"
+  audio_error: "To play audio, please use a browser that supports HTML5 audio."
+
+ar:
+  language_name: "العربية"
+  select_language: "اللغة"
+  menu: "الدليل الصوتي"
+  previous: "السابق"
+  next: "التالي"
+  update_required: "مطلوب تحديث"
+  audio_error: "لتشغيل الصوت، يرجى استخدام متصفح يدعم HTML5 Audio."
+
+fr:
+  language_name: "Français"
+  select_language: "Langue"
+  menu: "Guide audio"
+  previous: "Précédent"
+  next: "Suivant"
+  update_required: "Mise à jour requise"
+  audio_error: "Pour lire l'audio, utilisez un navigateur compatible avec HTML5 Audio."
