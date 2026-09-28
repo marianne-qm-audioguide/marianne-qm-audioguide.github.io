@@ -3,7 +3,6 @@
   var supportedLangs = ['en', 'ar'];
   var storedLang = localStorage.getItem('preferred_lang');
   var currentLang = 'en'; // default
-  
   // Create debug panel
   var debugPanel = document.createElement('div');
   debugPanel.id = 'debug-panel';
