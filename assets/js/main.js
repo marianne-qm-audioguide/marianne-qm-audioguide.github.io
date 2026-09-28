@@ -1,10 +1,25 @@
-// Language persistence - FIXED VERSION
 $(document).ready(function() {
   console.log('[LANG] Document ready, initializing...');
   
   var supportedLangs = ['en', 'ar'];
+  
+  // ALWAYS read from localStorage first on every page load
   var storedLang = localStorage.getItem('preferred_lang');
-  var currentLang = 'en'; // default
+  var currentLang = 'en'; // default fallback
+  
+  console.log('[LANG] storedLang:', storedLang);
+  
+  if (storedLang && supportedLangs.indexOf(storedLang) !== -1) {
+    currentLang = storedLang;
+    console.log('[LANG] Using stored lang:', currentLang);
+  } else {
+    // Only use browser lang if no stored preference
+    var browserLang = navigator.language.slice(0, 2);
+    if (supportedLangs.indexOf(browserLang) !== -1) {
+      currentLang = browserLang;
+    }
+    console.log('[LANG] Using fallback lang:', currentLang);
+  }
   
   // Create debug panel
   var debugPanel = document.createElement('div');
@@ -20,32 +35,15 @@ $(document).ready(function() {
   
   debug('supportedLangs: ' + supportedLangs.join(', '));
   debug('storedLang from localStorage: ' + storedLang);
-  
-  // Set initial language from localStorage or browser default
-  if (storedLang && supportedLangs.indexOf(storedLang) !== -1) {
-    currentLang = storedLang;
-    debug('Using stored lang: ' + currentLang);
-  } else {
-    var browserLang = navigator.language.slice(0, 2);
-    debug('Browser lang: ' + browserLang);
-    if (supportedLangs.indexOf(browserLang) !== -1) {
-      currentLang = browserLang;
-      debug('Using browser lang: ' + currentLang);
-    } else {
-      debug('Using default lang: en');
-    }
-  }
-  
-  debug('Final currentLang: ' + currentLang);
-  debug('document.documentElement.lang: ' + document.documentElement.lang);
+  debug('currentLang after check: ' + currentLang);
   
   // Check if lang-selector exists
   var langSelector = document.getElementById('lang-selector');
   if (!langSelector) {
     debug('ERROR: #lang-selector not found in DOM!');
-    debugPanel.innerHTML += '<strong style="color: red;">ERROR: Language selector not found!</strong><br>';
   } else {
-    debug('Found #lang-selector, value: ' + langSelector.value);
+    debug('Found #lang-selector');
+    // Set the selector to match currentLang
     langSelector.value = currentLang;
     debug('Set #lang-selector value to: ' + currentLang);
     
@@ -53,6 +51,7 @@ $(document).ready(function() {
       var newLang = e.target.value;
       debug('Language changed to: ' + newLang);
       localStorage.setItem('preferred_lang', newLang);
+      debug('Saved to localStorage: ' + newLang);
       applyLanguage(newLang);
     });
   }
@@ -67,34 +66,31 @@ $(document).ready(function() {
   applyLanguage(currentLang);
   
   function applyLanguage(lang) {
-    debug('applyLanguage called with: ' + lang);
+    console.log('[LANG] applyLanguage called with:', lang);
     currentLang = lang;
     document.documentElement.lang = lang;
-    debug('Set documentElement.lang to: ' + lang);
     
     // Hide all language content
     var allContent = document.querySelectorAll('.lang-content');
     debug('Hiding all .lang-content elements (' + allContent.length + ' found)');
-    allContent.forEach(function(el, index) {
+    allContent.forEach(function(el) {
       el.style.display = 'none';
-      debug('Hidden element ' + index + ': ' + el.className);
     });
     
     // Show only selected language
     var selectedContent = document.querySelectorAll('.lang-' + lang);
     debug('Showing .lang-' + lang + ' elements (' + selectedContent.length + ' found)');
-    selectedContent.forEach(function(el, index) {
+    selectedContent.forEach(function(el) {
       el.style.display = 'block';
-      debug('Shown element ' + index + ': ' + el.className);
     });
     
     // Update direction for RTL languages
     if (lang === 'ar') {
       document.body.style.direction = 'rtl';
-      debug('Set body direction: rtl');
+      document.body.style.textAlign = 'right';
     } else {
       document.body.style.direction = 'ltr';
-      debug('Set body direction: ltr');
+      document.body.style.textAlign = 'left';
     }
     
     debugPanel.innerHTML += '<strong>Current language: ' + lang + '</strong><br>';
@@ -102,14 +98,16 @@ $(document).ready(function() {
   
   // Slick JS
   var arrowsContainer = $("#arrows-container");
-  $('.slick').slick({
-    dots: true,
-    arrows: false
-  });
+  if (arrowsContainer.length) {
+    $('.slick').slick({
+      dots: true,
+      arrows: false
+    });
 
-  $('.slick-slide-to-next').on("click", function() {
-    $('.slick').slick('slickNext');
-  });
+    $('.slick-slide-to-next').on("click", function() {
+      $('.slick').slick('slickNext');
+    });
+  }
 
   $('.slick-post-hero-image').slick({
     dots: true,
