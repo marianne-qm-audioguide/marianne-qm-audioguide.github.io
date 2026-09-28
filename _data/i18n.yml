@@ -1,0 +1,9 @@
+en:
+  welcome_title: "Welcome"
+  select_stop: "Select an audio guide stop to begin"
+  now_playing: "Now Playing"
+  
+ar:
+  welcome_title: "مرحباً"
+  select_stop: "اختر محطة دليل صوتي للبدء"
+  now_playing: "يعزف الآن"
