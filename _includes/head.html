@@ -138,17 +138,34 @@ if ($.support.fixedPosition) {
   })(document,window.navigator,'standalone');
 
 // Initialise jPlayer, grabbed the MP3 source file from the audio element on the page.
+// Initialise jPlayer with the user's selected language
 $(document).ready(function(){
+
+  var preferredLang = localStorage.getItem('preferred_lang') || 'en';
+
+  var audioSource;
+
+  if (preferredLang === 'ar') {
+    audioSource = $("#audio-ar source").attr("src");
+  } else {
+    audioSource = $("#audio-en source").attr("src");
+  }
+
+  console.log('[JP] Initial language:', preferredLang);
+  console.log('[JP] Initial audio:', audioSource);
 
   $("#jquery_jplayer_1").jPlayer({
     ready: function () {
       $("#episode-element").hide();
+
       $(this).jPlayer("setMedia", {
         title: "",
-        mp3: $("#episode-source").attr("src")
+        mp3: audioSource
       });
 
+      console.log('[JP] Media initialized:', audioSource);
     },
+
     swfPath: "{{ site.baseurl }}/assets/js/jplayer",
     supplied: "mp3",
     wmode: "window",
@@ -159,6 +176,7 @@ $(document).ready(function(){
     remainingDuration: true,
     toggleDuration: true
   });
+
 });
 
   </script>
