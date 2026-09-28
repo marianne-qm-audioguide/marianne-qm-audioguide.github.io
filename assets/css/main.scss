@@ -1,105 +1,81 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
 @charset "utf-8";
 
-// Our variables - Mathaf-inspired professional museum palette
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size: 18px;
+
+
+// Our variables
+$base-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$base-font-size:   20px;
+
 $base-font-weight: 400;
-$small-font-size: $base-font-size * 0.875;
-$base-line-height: 1.6;
-$spacing-unit: 30px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
 
-// Text and backgrounds - clean, high contrast for readability
-$text-color: #1a1a1a;
-$background-hr: #e0e0e0;
-$background-color: #ffffff;
-$background-darker: #f5f5f5;
+$spacing-unit:     30px;
 
-// Brand color - inspired by Mathaf's sophisticated palette
-// Using a deep, professional blue-grey as primary brand color
-$brand-color: #2c3e50;
+$text-color:       	#fafafa;
+$background-hr:		#383838;
+$background-color: 	#222222;
+$background-darker: #1B1B1B;
+$brand-color:	   	#43A047;
+$anchor-hover-color:	lighten($brand-color, 30%);
 
-$anchor-hover-color: #e83082; // Mathaf's magenta accent
-$player-now-playing-size: 13px;
-$player-height: 64px;
-$player-button-size: 48px;
-
-// Player styling - clean and minimal
-$player-bgcolor: $brand-color;
-$player-scrubber-color: darken($brand-color, 5%);
-$player-loaded-color: darken($brand-color, 10%);
-$player-progress-color: lighten($brand-color, 15%);
-$player-play-color: lighten($brand-color, 5%);
+$player-now-playing-size:   13px;
+$player-height:		64px;
+$player-button-size:	48px;
+$player-bgcolor:	$brand-color;
+$player-scrubber-color:	darken($brand-color, 1%);
+$player-loaded-color:	darken($brand-color, 5%);
+$player-progress-color:		lighten($brand-color, 10%);
+$player-play-color:		lighten($brand-color, 5%);
 $player-progress-height: 10px;
 
-// Tile/button styling
-$tile-bgcolor: $brand-color;
-$tile-color: #ffffff;
-$tile-size: 56px;
-$tile-size-large: 64px;
-$tile-border-radius: 2px;
+$tile-bgcolor:	   $brand-color;
+$tile-color:	   #fafafa;
+$tile-size:		   56px;
+$tile-size-large:  64px;
+$tile-border-radius:	2px;
 
-// Grey scale for UI elements
-$grey-color: $brand-color;
+$grey-color:       $brand-color;
 $grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark: darken($grey-color, 25%);
+$grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width: 900px;
-$on-tiny: 310px;
-$on-palm: 640px;
-$on-laptop: 800px;
-$height-600: 600px;
+$content-width:    800px;
+
+$on-tiny:          310px;
+$on-palm:          640px;
+$on-laptop:        800px;
+
+$height-600:       600px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
-// .wrapper {
-// padding-right: $spacing-unit / 2;
-// padding-left: $spacing-unit / 2;
-// }
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
 // }
 @mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
-  }
+    @media screen and (max-width: $device) {
+        @content;
+    }
 }
 
 @mixin media-query-height($device) {
-  @media screen and (min-height: $device) {
-    @content;
-  }
+    @media screen and (min-height: $device) {
+        @content;
+    }
 }
 
-// Import partials from sass_dir (defaults to _sass)
+
+// Import partials from `sass_dir` (defaults to `_sass`)
 @import
-"fonts",
-"base",
-"layout",
-"syntax-highlighting"
+        "fonts",
+        "base",
+        "layout",
+        "syntax-highlighting"
 ;
-
-// Language toggle styles
-.lang-content {
-  &.lang-ar {
-    direction: rtl;
-    text-align: right;
-  }
-}
-
-#lang-selector {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 100;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-family: $base-font-family;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background: #fff;
-  color: #333;
-  cursor: pointer;
-  
-  &:hover {
-    border-color: $brand-color;
-  }
-}
