@@ -1,19 +1,28 @@
 /*************
-Mathaf-inspired typography
-Using clean, professional sans-serif fonts
+Mathaf-inspired typography with custom font stack
+Using Helvetica Neue LT Arabic Webfont for Arabic support
 *************/
 
-// Import Helvetica Neue (system font on Mac/iOS) or fallback to clean sans-serif
-// For better cross-platform consistency, we'll use a modern font stack
-
+// Import Inter as fallback (optional, can remove if not needed)
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@font-face {
+  font-family: 'Helvetica Neue LT Arabic Webfont';
+  src: url('/assets/fonts/HelveticaNeueLTArabic-Regular.woff2') format('woff2'),
+       url('/assets/fonts/HelveticaNeueLTArabic-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 
-// Arabic font support
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap');
-
+@font-face {
+  font-family: 'Helvetica Neue LT Arabic Webfont';
+  src: url('/assets/fonts/HelveticaNeueLTArabic-Bold.woff2') format('woff2'),
+       url('/assets/fonts/HelveticaNeueLTArabic-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
 // Set font variables
-$base-font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$arabic-font-family: "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+$base-font-family: 'Helvetica Neue LT Arabic Webfont', 'Helvetica Neue Condensed', 'Helvetica Condensed', 'Arial Narrow', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$arabic-font-family: 'Helvetica Neue LT Arabic Webfont', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 // Apply Arabic font when language is Arabic
 html[lang="ar"] {
