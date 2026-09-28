@@ -19,22 +19,22 @@ $spacing-unit:     30px;
 $text-color: #1a1a1a;
 $background-hr: #000; //line
 $background-color: #ffffff;
-$background-darker: #ffa500; //background artifact, menu background after press, play bar background
+$background-darker: #bdbdbd; //background artifact, menu background after press, play bar background
 $brand-color: #464646;
 $anchor-hover-color:	#e83082;
 
 $player-now-playing-size:   13px;
 $player-height:		64px;
 $player-button-size:	48px;
-$player-bgcolor:	#bdbdbd;
+$player-bgcolor:	#000; //circle?
 //$player-scrubber-color: darken(#e83082, 5%); //magenta
 $player-loaded-color: lighten(#e83082, 15%); //magenta
 $player-progress-color: darken(#e83082, 10%); //progress bar moving lighter
 //$player-play-color: lighten(#e83082, 5%); //magenta
 $player-progress-height: 10px;
 
-$tile-bgcolor:	   #ffff00; //dot below picture/artifact and hover color of arrows
-$tile-color: #008000; //number of the stop
+$tile-bgcolor:	   #78aaf9; //dot below picture/artifact and hover color of arrows
+$tile-color: #e83082; //number of the stop
 $tile-size:		   56px;
 $tile-size-large:  64px;
 $tile-border-radius:	2px;
