@@ -19,7 +19,7 @@ $spacing-unit:     30px;
 $text-color: #1a1a1a;
 $background-hr: #000; //line
 $background-color: #ffffff;
-$background-darker: #0080ff; //background artifact
+$background-darker: #ffa500; //background artifact, menu background after press, play bar background
 $brand-color: #464646;
 $anchor-hover-color:	#e83082;
 
@@ -33,7 +33,7 @@ $player-progress-color: darken(#e83082, 10%); //progress bar moving lighter
 //$player-play-color: lighten(#e83082, 5%); //magenta
 $player-progress-height: 10px;
 
-$tile-bgcolor:	   #ffff00; //dot below picture/artifact
+$tile-bgcolor:	   #ffff00; //dot below picture/artifact and hover color of arrows
 $tile-color: #008000; //number of the stop
 $tile-size:		   56px;
 $tile-size-large:  64px;
