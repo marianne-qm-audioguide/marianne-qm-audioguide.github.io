@@ -17,9 +17,9 @@ $base-line-height: 1.6;
 $spacing-unit:     30px;
 
 $text-color: #1a1a1a;
-$background-hr: #ff0000; //red
+$background-hr: #000; //line
 $background-color: #ffffff;
-$background-darker: #0080ff; //blue
+$background-darker: #0080ff; //background artifact
 $brand-color: #464646;
 $anchor-hover-color:	#e83082;
 
@@ -27,19 +27,19 @@ $player-now-playing-size:   13px;
 $player-height:		64px;
 $player-button-size:	48px;
 $player-bgcolor:	#bdbdbd;
-$player-scrubber-color: darken(#e83082, 5%); //magenta
-$player-loaded-color: darken(#e83082, 10%); //magenta
-$player-progress-color: lighten(#e83082, 15%); //magenta
-$player-play-color: lighten(#e83082, 5%); //magenta
+//$player-scrubber-color: darken(#e83082, 5%); //magenta
+$player-loaded-color: lighten(#e83082, 15%); //magenta
+$player-progress-color: darken(#e83082, 10%); //progress bar moving lighter
+//$player-play-color: lighten(#e83082, 5%); //magenta
 $player-progress-height: 10px;
 
-$tile-bgcolor:	   #ffff00; //yellow
-$tile-color: #008000; //greem
+$tile-bgcolor:	   #ffff00; //dot below picture/artifact
+$tile-color: #008000; //number of the stop
 $tile-size:		   56px;
 $tile-size-large:  64px;
 $tile-border-radius:	2px;
 
-$grey-color:       $brand-color;
+$grey-color:       #9370db; //purple
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
