@@ -1,12 +1,9 @@
 <header class="site-header">
-
   <div class="site-header-wrapper">
-    
-    
     <a class="site-header-back-button" href="{{ site.baseurl }}/">
       <img src="{{ site.baseurl }}/assets/img/icons/button_back.png"/>
     </a>
-    
+
     <a class="site-title" href="{{ site.baseurl }}/">
       <img src="{{ site.baseurl }}{{site.logo}}" alt="{{site.title}} logo" class="site-logo"/>
     </a>
@@ -14,10 +11,11 @@
     <a class="site-header-menu-button dont-use-ios-override" href="{{ site.baseurl }}/">
       <img src="{{ site.baseurl }}/assets/img/icons/menu_icon.png"/>
     </a>
-
+    
+    <!-- Language Selector -->
+    <select id="lang-selector" style="position: absolute; right: 20px; top: 20px; z-index: 100; padding: 5px;">
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+    </select>
   </div>
-  <select id="lang-selector">
-    <option value="en">English</option>
-    <option value="ar">العربية</option>
-  </select>
 </header>
