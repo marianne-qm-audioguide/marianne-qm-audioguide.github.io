@@ -26,11 +26,11 @@ $anchor-hover-color:	#e83082;
 $player-now-playing-size:   13px;
 $player-height:		64px;
 $player-button-size:	48px;
-$player-bgcolor:	$brand-color;
-$player-scrubber-color: darken($brand-color, 5%);
-$player-loaded-color: darken($brand-color, 10%);
-$player-progress-color: lighten($brand-color, 15%);
-$player-play-color: lighten($brand-color, 5%);
+$player-bgcolor:	#bdbdbd;
+$player-scrubber-color: darken(#bdbdbd, 5%);
+$player-loaded-color: darken(#bdbdbd, 10%);
+$player-progress-color: lighten(#bdbdbd, 15%);
+$player-play-color: lighten(#bdbdbd, 5%);
 $player-progress-height: 10px;
 
 $tile-bgcolor:	   $brand-color;
