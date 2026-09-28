@@ -1,108 +1,607 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
 @charset "utf-8";
 
-
-
-// Our variables
-$base-font-family: 'Helvetica Neue LT Arabic Webfont', Helvetica Neue Condensed, Helvetica Condensed, Arial Narrow, Helvetica Neue, Helvetica, Arial, sans-serif;
-
-$base-font-size:   18px;
-
+// Our variables - Mathaf-inspired professional museum palette
+$base-font-family: 'Helvetica Neue LT Arabic Webfont', 'Helvetica Neue Condensed', 'Helvetica Condensed', 'Arial Narrow', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$base-font-size: 18px;
 $base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
+$small-font-size: $base-font-size * 0.875;
 $base-line-height: 1.6;
+$spacing-unit: 30px;
 
-$spacing-unit:     30px;
+// Mathaf color palette
+$color-black: #000;
+$color-white: #fff;
+$color-blue: #78aaf9;
+$color-orange: #f6c343;
+$color-yellow: #ffe40c;
+$color-magenta: #e83082;
+$color-grey-dark: #222;
+$color-grey: #464646;
+$color-grey-light: #bdbdbd;
+$color-grey-lighter: #ebebeb;
+$color-grey-extralight: #f6f6f6;
+$color-grey-medium: #6e6e6e;
+$color-yellow-bright: #f9ff1e;
+$color-error: #e9190a;
+$color-success: #36ac17;
+$color-info: #000;
 
-$text-color: #1a1a1a;
-$background-hr: #e0e0e0;
-$background-color: #ffffff;
-$background-darker: #f5f5f5;
-$brand-color: #2c3e50;
-$anchor-hover-color:	#e83082;
+// Text and backgrounds
+$text-color: $color-grey-medium;
+$background-hr: $color-black;
+$background-color: $color-white;
+$background-darker: $color-grey-lighter;
 
-$player-now-playing-size:   13px;
-$player-height:		64px;
-$player-button-size:	48px;
-$player-bgcolor:	$brand-color;
+// Brand color - using grey as primary
+$brand-color: $color-grey;
+
+$anchor-hover-color: darken($brand-color, 10%);
+$player-now-playing-size: 13px;
+$player-height: 64px;
+$player-button-size: 48px;
+
+// Player styling
+$player-bgcolor: $brand-color;
 $player-scrubber-color: darken($brand-color, 5%);
 $player-loaded-color: darken($brand-color, 10%);
 $player-progress-color: lighten($brand-color, 15%);
 $player-play-color: lighten($brand-color, 5%);
 $player-progress-height: 10px;
 
-$tile-bgcolor:	   $brand-color;
-$tile-color: #ffffff;
-$tile-size:		   56px;
-$tile-size-large:  64px;
-$tile-border-radius:	2px;
+// Tile/button styling
+$tile-bgcolor: $brand-color;
+$tile-color: $color-white;
+$tile-size: 56px;
+$tile-size-large: 64px;
+$tile-border-radius: 2px;
 
-$grey-color:       $brand-color;
+// Grey scale for UI elements
+$grey-color: $brand-color;
 $grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color-dark: darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
-
-$on-tiny:          310px;
-$on-palm:          640px;
-$on-laptop:        800px;
-
-$height-600:       600px;
+$content-width: 900px;
+$on-tiny: 310px;
+$on-palm: 640px;
+$on-laptop: 800px;
+$height-600: 600px;
 
 // Use media queries like this:
 // @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
+// .wrapper {
+// padding-right: $spacing-unit / 2;
+// padding-left: $spacing-unit / 2;
+// }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-@mixin media-query-height($device) {
-    @media screen and (min-height: $device) {
-        @content;
-    }
-}
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "fonts",
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
-
-// Language toggle styles
-.lang-content {
-  &.lang-ar {
-    direction: rtl;
-    text-align: right;
+  @media screen and (max-width: $device) {
+    @content;
   }
 }
 
+@mixin media-query-height($device) {
+  @media screen and (min-height: $device) {
+    @content;
+  }
+}
+
+// Import partials from sass_dir (defaults to _sass)
+@import
+"fonts",
+"base",
+"layout",
+"syntax-highlighting"
+;
+
+// === LANGUAGE SELECTOR ===
 #lang-selector {
   position: absolute;
   right: 20px;
   top: 20px;
   z-index: 100;
-  padding: 8px 12px;
+  padding: 8px 16px;
   font-size: 14px;
   font-family: $base-font-family;
-  border: 1px solid #ddd;
+  border: 2px solid $color-grey;
   border-radius: 4px;
-  background: #fff;
-  color: #333;
+  background: $color-yellow-bright;
+  color: $color-black;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
   
   &:hover {
-    border-color: $brand-color;
+    background: darken($color-yellow-bright, 10%);
+    border-color: $color-black;
+  }
+}
+
+// === HEADER ===
+.site-header {
+  background: $color-grey;
+  border-bottom: 2px solid $color-black;
+  padding: 20px 0;
+  
+  .site-header-wrapper {
+    position: relative;
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0 $spacing-unit;
+  }
+  
+  .site-title {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: $color-grey-lighter;
+    
+    &:hover {
+      color: $color-white;
+    }
+    
+    .site-logo {
+      max-height: 50px;
+      width: auto;
+    }
+  }
+  
+  .site-header-back-button,
+  .site-header-menu-button {
+    img {
+      height: 32px;
+      width: auto;
+      transition: opacity 0.2s ease;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// === FOOTER ===
+.site-footer {
+  background: $color-grey-lighter;
+  border-top: 2px solid $color-black;
+  color: $color-grey-dark;
+  padding: 30px 0;
+  font-size: 0.9em;
+  
+  h3 {
+    font-size: 1em;
+    color: $color-grey-dark;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+  }
+}
+
+// === PAGE CONTENT ===
+.page-content {
+  padding: 40px 0;
+  background: $color-white;
+  
+  .wrapper {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0 $spacing-unit;
+  }
+}
+
+// === POST/STOP CONTENT ===
+.post-content {
+  font-size: 1.05em;
+  line-height: 1.7;
+  color: $color-grey-medium;
+  
+  p {
+    margin-bottom: 1.8em;
+  }
+}
+
+// === HEADINGS ===
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: $color-grey-dark;
+  margin-bottom: 1.2em;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.2;
+  color: $color-grey-medium; // Title color
+}
+
+h2 {
+  font-size: 1.8em;
+  line-height: 1.3;
+  color: $color-grey-dark; // Section title color
+}
+
+h3 {
+  font-size: 1.4em;
+  line-height: 1.4;
+}
+
+// === LINKS ===
+a {
+  color: $brand-color;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: darken($brand-color, 15%);
+  }
+}
+
+// === PARAGRAPHS ===
+p {
+  margin-bottom: 1.5em;
+  max-width: 65ch;
+  color: $color-grey-medium;
+}
+
+// === HORIZONTAL RULES ===
+hr {
+  border: none;
+  border-top: 2px solid $color-black;
+  margin: 2em 0;
+}
+
+// === BLOCKQUOTES ===
+blockquote {
+  border-left: 4px solid $color-grey;
+  padding-left: 1.5em;
+  margin: 2em 0;
+  color: $color-grey-dark;
+  font-style: italic;
+  background: $color-grey-extralight;
+  padding: 1.5em;
+}
+
+// === IMAGES WITH ZOOM HOVER EFFECT ===
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5em auto;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}
+
+.post-hero-image {
+  img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
+
+// === AUDIO PLAYER ===
+.jp-audio {
+  .jp-progress {
+    background: $color-grey-light;
+    border-radius: 2px;
+  }
+  
+  .jp-play-bar {
+    background: $brand-color;
+  }
+  
+  .jp-seek-bar {
+    cursor: pointer;
+  }
+  
+  .jp-controls button {
+    background: $brand-color;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    
+    &:hover {
+      background: darken($brand-color, 15%);
+    }
+  }
+}
+
+// === PLAYER BUTTONS (Prev/Next) ===
+.player-buttons {
+  .player-buttons-prev,
+  .player-buttons-next {
+    a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: $color-grey-lighter;
+      border: 2px solid $color-grey;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: darken($color-grey-lighter, 15%);
+        border-color: $color-black;
+      }
+    }
+    
+    span {
+      color: $color-grey-dark;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+  }
+}
+
+// === AUDIO FOOTER CONTAINER ===
+.audio-footer-container {
+  background: $color-grey-lighter;
+  border-top: 2px solid $color-black;
+  padding: 15px 0;
+  
+  .player-now-playing {
+    p {
+      color: $color-grey-dark;
+      font-size: $player-now-playing-size;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+}
+
+// === STOP BOXES / TILES ===
+.post-list {
+  li {
+    a {
+      display: block;
+      padding: 20px;
+      margin-bottom: 15px;
+      background: $color-white;
+      border: 3px solid;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      // Different colors for different stops (you can customize per stop)
+      &:nth-child(1) {
+        border-color: $color-blue;
+        
+        &:hover {
+          background: darken($color-blue, 15%);
+          transform: translateY(-3px);
+        }
+      }
+      
+      &:nth-child(2) {
+        border-color: $color-orange;
+        
+        &:hover {
+          background: darken($color-orange, 15%);
+          transform: translateY(-3px);
+        }
+      }
+      
+      &:nth-child(3) {
+        border-color: $color-yellow;
+        
+        &:hover {
+          background: darken($color-yellow, 15%);
+          transform: translateY(-3px);
+        }
+      }
+      
+      &:nth-child(4) {
+        border-color: $color-magenta;
+        
+        &:hover {
+          background: darken($color-magenta, 15%);
+          transform: translateY(-3px);
+        }
+      }
+      
+      .post-item {
+        font-size: 1.4em;
+        font-weight: 700;
+        color: $color-grey-dark;
+      }
+    }
+  }
+}
+
+// === SLIDE MENU ===
+.slide-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: $color-grey-lighter;
+  border: 2px solid $color-black;
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 999;
+  display: none;
+  min-width: 250px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  &.slide-menu-show {
+    display: block;
+  }
+  
+  h2 {
+    color: $color-grey-dark;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid $color-black;
+    padding-bottom: 10px;
+  }
+  
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin-bottom: 10px;
+      
+      a {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        background: $color-white;
+        border: 2px solid $color-grey;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background: $color-grey;
+          border-color: $color-black;
+          
+          .post-item {
+            color: $color-white;
+          }
+        }
+        
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 12px;
+          margin: 0 12px 0 0;
+        }
+        
+        .post-item {
+          font-size: 1.1em;
+          font-weight: 600;
+          color: $color-grey-dark;
+          transition: color 0.2s ease;
+        }
+      }
+    }
+  }
+}
+
+// === WELCOME PAGE ===
+.page-content.welcome {
+  background: $color-grey-extralight;
+  border-bottom: 2px solid $color-black;
+  
+  .slick-container {
+    background: $color-white;
+    border: 2px solid $color-black;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 20px 0;
+  }
+  
+  .prompt {
+    background: $color-yellow-bright;
+    color: $color-black;
+    padding: 15px 20px;
+    border: 2px solid $color-black;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: darken($color-yellow-bright, 10%);
+      transform: translateY(-2px);
+    }
+  }
+  
+  .styled-button {
+    background: $color-yellow-bright;
+    border: 2px solid $color-black;
+    padding: 12px 24px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: darken($color-yellow-bright, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// === CONNECTED PAGE ===
+.connected-page {
+  background: $color-success;
+  color: $color-white;
+  text-align: center;
+  padding: 60px 20px;
+  
+  a {
+    color: $color-white;
+    text-decoration: underline;
+    font-weight: 600;
+    
+    &:hover {
+      color: $color-grey-lighter;
+    }
+  }
+}
+
+// === LANGUAGE-SPECIFIC ARABIC STYLING ===
+.lang-ar {
+  direction: rtl;
+  text-align: right;
+  font-family: $base-font-family;
+  line-height: 1.8;
+  
+  p {
+    margin-bottom: 1.5em;
+  }
+  
+  h1, h2, h3 {
+    line-height: 1.4;
+  }
+  
+  blockquote {
+    border-left: none;
+    border-right: 4px solid $color-grey;
+    padding-right: 1.5em;
+    padding-left: 0;
+  }
+}
+
+// === RESPONSIVE ADJUSTMENTS ===
+@include media-query($on-palm) {
+  body {
+    font-size: 16px;
+  }
+  
+  .site-header {
+    padding: 15px 0;
+    
+    .site-header-wrapper {
+      padding: 0 15px;
+    }
+  }
+  
+  #lang-selector {
+    position: static;
+    display: block;
+    margin: 10px auto;
+    width: auto;
+    text-align: center;
+  }
+  
+  .slide-menu {
+    top: 70px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+  }
+  
+  .post-list li a {
+    padding: 15px;
   }
 }
