@@ -6,35 +6,35 @@
 
 
 // Our variables
-$base-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$base-font-size:   20px;
+$base-font-size:   18px;
 
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$base-line-height: 1.6;
 
 $spacing-unit:     30px;
 
-$text-color:       	#fafafa;
-$background-hr:		#383838;
-$background-color: 	#222222;
-$background-darker: #1B1B1B;
-$brand-color:	   	#43A047;
-$anchor-hover-color:	lighten($brand-color, 30%);
+$text-color: #1a1a1a;
+$background-hr: #e0e0e0;
+$background-color: #ffffff;
+$background-darker: #f5f5f5;
+$brand-color: #2c3e50;
+$anchor-hover-color:	#e83082;
 
 $player-now-playing-size:   13px;
 $player-height:		64px;
 $player-button-size:	48px;
 $player-bgcolor:	$brand-color;
-$player-scrubber-color:	darken($brand-color, 1%);
-$player-loaded-color:	darken($brand-color, 5%);
-$player-progress-color:		lighten($brand-color, 10%);
-$player-play-color:		lighten($brand-color, 5%);
+$player-scrubber-color: darken($brand-color, 5%);
+$player-loaded-color: darken($brand-color, 10%);
+$player-progress-color: lighten($brand-color, 15%);
+$player-play-color: lighten($brand-color, 5%);
 $player-progress-height: 10px;
 
 $tile-bgcolor:	   $brand-color;
-$tile-color:	   #fafafa;
+$tile-color: #ffffff;
 $tile-size:		   56px;
 $tile-size-large:  64px;
 $tile-border-radius:	2px;
@@ -79,3 +79,30 @@ $height-600:       600px;
         "layout",
         "syntax-highlighting"
 ;
+
+// Language toggle styles
+.lang-content {
+  &.lang-ar {
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+#lang-selector {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: $base-font-family;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  
+  &:hover {
+    border-color: $brand-color;
+  }
+}
