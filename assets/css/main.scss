@@ -16,12 +16,51 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       	#fafafa;
-$background-hr:		#383838;
-$background-color: 	#222222;
-$background-darker: #1B1B1B;
-$brand-color:	   	#43A047;
-$anchor-hover-color:	lighten($brand-color, 30%);
+// Mathaf-inspired colour palette
+
+$color-black: #000000;
+$color-white: #ffffff;
+
+$color-blue: #78aaf9;
+$color-orange: #f6c343;
+$color-yellow: #ffe40c;
+$color-magenta: #e83082;
+
+$color-grey-dark: #222222;
+$color-grey: #464646;
+$color-grey-light: #bdbdbd;
+$color-grey-lighter: #ebebeb;
+$color-grey-extralight: #f6f6f6;
+$color-grey-medium: #6e6e6e;
+
+$color-yellow-bright: #f9ff1e;
+
+$color-error: #e9190a;
+$color-success: #36ac17;
+$color-info: #000000;
+
+
+// Main typography
+
+$base-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$base-font-size: 20px;
+$base-font-weight: 400;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit: 30px;
+
+
+// Main UI colours
+
+$text-color: $color-white;
+$background-hr: $color-grey;
+$background-color: $color-black;
+$background-darker: $color-grey-dark;
+
+$brand-color: $color-blue;
+$anchor-hover-color: $color-yellow;
 
 $player-now-playing-size:   13px;
 $player-height:		64px;
