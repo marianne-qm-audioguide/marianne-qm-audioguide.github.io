@@ -79,3 +79,20 @@ $height-600:       600px;
         "layout",
         "syntax-highlighting"
 ;
+
+// Language toggle styles
+.lang-content {
+  &.lang-ar {
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+#lang-selector {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
+  padding: 5px;
+  font-size: 14px;
+}
