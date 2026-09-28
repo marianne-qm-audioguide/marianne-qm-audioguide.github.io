@@ -1,12 +1,15 @@
-// Language persistence with DEBUG
-(function() {
+// Language persistence - FIXED VERSION
+$(document).ready(function() {
+  console.log('[LANG] Document ready, initializing...');
+  
   var supportedLangs = ['en', 'ar'];
   var storedLang = localStorage.getItem('preferred_lang');
   var currentLang = 'en'; // default
+  
   // Create debug panel
   var debugPanel = document.createElement('div');
   debugPanel.id = 'debug-panel';
-  debugPanel.style.cssText = 'position: fixed; bottom: 10px; left: 10px; background: #000; color: #0f0; padding: 10px; font-size: 12px; z-index: 9999; font-family: monospace; max-width: 400px;';
+  debugPanel.style.cssText = 'position: fixed; bottom: 10px; left: 10px; background: #000; color: #0f0; padding: 10px; font-size: 12px; z-index: 9999; font-family: monospace; max-width: 400px; max-height: 300px; overflow: auto;';
   debugPanel.innerHTML = '<strong>DEBUG:</strong><br>';
   document.body.appendChild(debugPanel);
   
@@ -96,10 +99,6 @@
     
     debugPanel.innerHTML += '<strong>Current language: ' + lang + '</strong><br>';
   }
-})();
-
-$(document).ready(function() {
-  console.log('$(document).ready fired');
   
   // Slick JS
   var arrowsContainer = $("#arrows-container");
