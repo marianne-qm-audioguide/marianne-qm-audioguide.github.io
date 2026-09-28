@@ -92,7 +92,29 @@ $(document).ready(function() {
       document.body.style.direction = 'ltr';
       document.body.style.textAlign = 'left';
     }
+        // === ADD THIS: Switch audio file based on language ===
+    var audioEn = document.getElementById('audio-en');
+    var audioAr = document.getElementById('audio-ar');
+    var jplayer = $('#jquery_jplayer_1');
     
+    if (lang === 'ar' && audioAr) {
+      var newAudioSrc = audioAr.querySelector('source').src;
+      debug('Switching to Arabic audio: ' + newAudioSrc);
+      if (jplayer.length) {
+        jplayer.jPlayer('setMedia', {
+          mp3: newAudioSrc
+        }).jPlayer('play');
+      }
+    } else if (lang === 'en' && audioEn) {
+      var newAudioSrc = audioEn.querySelector('source').src;
+      debug('Switching to English audio: ' + newAudioSrc);
+      if (jplayer.length) {
+        jplayer.jPlayer('setMedia', {
+          mp3: newAudioSrc
+        }).jPlayer('play');
+      }
+    }
+    // =====================================================
     debugPanel.innerHTML += '<strong>Current language: ' + lang + '</strong><br>';
   }
   
