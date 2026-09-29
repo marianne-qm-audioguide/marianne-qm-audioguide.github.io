@@ -204,7 +204,35 @@ $height-600:       600px;
     opacity: 0.45;
   }
 }
+// === STOP TILES: force override ===
+.post-list li a.post-link {
+  background-color: $color-grey-lighter !important; // #ebebeb
+  border: 1px solid $color-black !important;
+  color: $color-black !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
 
+.post-list li a.post-link .post-item {
+  color: $color-black !important;
+  transition: color 0.2s ease;
+}
+
+.post-list li a.post-link:hover,
+.post-list li a.post-link:focus {
+  background-color: $color-black !important;
+  border-color: $color-black !important;
+  color: $color-white !important;
+}
+
+.post-list li a.post-link:hover .post-item,
+.post-list li a.post-link:focus .post-item {
+  color: $color-white !important;
+}
+
+.post-list li a.post-link:focus {
+  outline: 2px solid $color-magenta;
+  outline-offset: 3px;
+}
 // Mobile layout
 @include media-query($on-palm) {
   .footer-top-row {
