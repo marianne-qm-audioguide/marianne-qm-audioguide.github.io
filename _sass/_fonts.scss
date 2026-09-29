@@ -1,16 +1,20 @@
 /*************
-Mathaf-inspired typography with custom font stack
-Using Helvetica Neue LT Arabic Webfont for Arabic support
+Font loading only
 *************/
 
-// Import Inter as fallback (optional, can remove if not needed)
+// Optional English fallback/interface font
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+// Readable bilingual body/transcript font
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
 @font-face {
   font-family: 'Helvetica Neue LT Arabic Webfont';
   src: url('/assets/fonts/HelveticaNeueLTArabic-Regular.woff2') format('woff2'),
        url('/assets/fonts/HelveticaNeueLTArabic-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -19,16 +23,16 @@ Using Helvetica Neue LT Arabic Webfont for Arabic support
        url('/assets/fonts/HelveticaNeueLTArabic-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
-}
-// Set font variables
-$base-font-family: 'Helvetica Neue LT Arabic Webfont', 'Helvetica Neue Condensed', 'Helvetica Condensed', 'Arial Narrow', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-$arabic-font-family: 'Helvetica Neue LT Arabic Webfont', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-
-// Apply Arabic font when language is Arabic
-html[lang="ar"] {
-  font-family: $arabic-font-family;
+  font-display: swap;
 }
 
+// Use this variable specifically for normal body/transcript copy.
+$body-font-family: 'IBM Plex Sans Arabic', 'Helvetica Neue', Arial, sans-serif;
+
+// Existing Arabic UI/title font stack.
+$arabic-font-family: 'Helvetica Neue LT Arabic Webfont', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+html[lang="ar"],
 html[lang="ar"] body {
   font-family: $arabic-font-family;
 }
