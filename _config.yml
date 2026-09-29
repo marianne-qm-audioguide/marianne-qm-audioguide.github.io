@@ -19,8 +19,10 @@ twitter_username: acmilabs
 github_username:  acmilabs
 menu_heading: "Select another stop"
 index_page_text: "Select an audio guide stop to begin."
-headphones_icon_color: "/assets/img/icons/headphones-dark.png"
-headphones_icon_light: "/assets/img/icons/headphones-light.png"
+# Headphone icon used for stop tiles on the home page and slide-out menu.
+headphones_icon_color: "/assets/img/icons/headphones.png"
+# Headphone icon used in the header of an individual stop page.
+headphones_icon_light: "/assets/img/icons/headphones-yellow.png"
 default_lang: en
 languages: ["en", "ar"]
 
