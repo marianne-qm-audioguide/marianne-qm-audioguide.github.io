@@ -323,6 +323,7 @@
         line-height: 0;
         text-align: center;
         vertical-align: middle;
+        padding: 20px; //PADDING TILES
 
         a {
             // TILE DEFAULT BACKGROUND: #ebebeb
@@ -336,7 +337,7 @@
             width: $tile-size-large;
             height: $tile-size-large;
             display: inline-block;
-            font-size: 20px;
+            font-size: 18px; //FONT CHANGED FROM 20
             border-radius: $tile-border-radius;
             position: relative;
             padding: 0;
