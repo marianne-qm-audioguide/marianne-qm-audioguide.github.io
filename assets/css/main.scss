@@ -1,157 +1,30 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
-@charset "utf-8";
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="partner-logos">
+      <div class="footer-top-row">
+        <h3>Marianne Angeline Igna - student project</h3>
 
-// Mathaf color palette - ADD THESE VARIABLES
-$color-black: #000;
-$color-white: #fff;
-$color-blue: #78aaf9;
-$color-orange: #f6c343;
-$color-yellow: #ffe40c;
-$color-magenta: #e83082;
-$color-grey-dark: #222;
-$color-grey: #464646;
-$color-grey-light: #bdbdbd;
-$color-grey-lighter: #ebebeb;
-$color-grey-extralight: #f6f6f6;
-$color-grey-medium: #6e6e6e;
-$color-yellow-bright: #f9ff1e;
-$color-error: #e9190a;
-$color-success: #36ac17;
-$color-info: #000;
+        <div class="language-selector-container">
+          <label for="lang-selector">Language:</label>
 
-// Our variables
-$base-font-family: 'Helvetica Neue LT Arabic Webfont', Helvetica Neue Condensed, Helvetica Condensed, Arial Narrow, Helvetica Neue, Helvetica, Arial, sans-serif;
-$base-font-size:   18px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.6;
-$spacing-unit:     30px;
+          <select id="lang-selector">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+          </select>
+        </div>
+      </div>
 
-$text-color: #1a1a1a;
-$background-hr: $color-black; //line
-$background-color: #ffffff;
-$background-darker: $color-grey-lighter; //background artifact, menu background after press, play bar background
-$brand-color: $color-grey;
-$anchor-hover-color: $color-magenta;
+      <h3>Not an official audio guide!</h3>
 
-$player-now-playing-size:   13px;
-$player-height: 64px;
-$player-button-size: 48px;
-$player-bgcolor: $color-black; //circle?
-$player-loaded-color: lighten($color-magenta, 15%); //magenta
-$player-progress-color: darken($color-magenta, 10%); //progress bar moving lighter
-$player-progress-height: 10px;
+      <div class="footer-logos">
+        <a href="https://qm.org.qa/en/" target="_blank" rel="noopener noreferrer">
+          <img class="logo" src="{{ site.baseurl }}/assets/img/logo/qm.png" alt="Qatar Museums">
+        </a>
 
-$tile-bgcolor:   $color-blue; //dot below picture/artifact and hover color of arrows
-$tile-color: $color-magenta; //number of the stop
-$tile-size:   56px;
-$tile-size-large:  64px;
-$tile-border-radius: 2px;
-
-$grey-color:       #9370db; //purple
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-tiny:          310px;
-$on-palm:          640px;
-$on-laptop:        800px;
-
-$height-600:       600px;
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-@mixin media-query-height($device) {
-    @media screen and (min-height: $device) {
-        @content;
-    }
-}
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "fonts",
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
-
-// Language toggle styles
-.lang-content {
-  &.lang-ar {
-    direction: rtl;
-    text-align: right;
-  }
-}
-
-// === LANGUAGE SELECTOR IN FOOTER ===
-.language-selector-container {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 2px solid $color-black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  
-  label {
-    color: $color-grey-dark;
-    font-size: 14px;
-    font-weight: 600;
-  }
-  
-  #lang-selector {
-    padding: 8px 16px;
-    font-size: 14px;
-    font-family: $base-font-family;
-    border: 2px solid $color-grey;
-    border-radius: 4px;
-    background: $color-yellow-bright;
-    color: $color-black;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 150px;
-    
-    &:hover {
-      background: darken($color-yellow-bright, 10%);
-      border-color: $color-black;
-    }
-    
-    &:focus {
-      outline: 2px solid $color-black;
-      outline-offset: 2px;
-    }
-  }
-}
-
-// Responsive - stack on mobile
-@include media-query($on-palm) {
-  .language-selector-container {
-    flex-direction: column;
-    gap: 8px;
-    
-    label {
-      margin-bottom: 5px;
-    }
-    
-    #lang-selector {
-      width: 100%;
-      max-width: 200px;
-    }
-  }
-}
+        <a href="https://mathaf.org.qa/en/" target="_blank" rel="noopener noreferrer">
+          <img class="logo" src="{{ site.baseurl }}/assets/img/logo/mathaf-logo.jpg" alt="Mathaf">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
