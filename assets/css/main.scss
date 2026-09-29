@@ -206,7 +206,7 @@ $height-600:       600px;
 }
 // === STOP TILES: force override ===
 .post-list li a.post-link {
-  background-color: $color-grey-lighter !important; // #ebebeb
+  background-color: $color-white !important; // #ebebeb
   border: 1px solid $color-black !important;
   color: $color-black !important;
   transition: background-color 0.2s ease, color 0.2s ease;
