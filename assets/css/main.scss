@@ -102,7 +102,7 @@ $height-600:       600px;
 .site-footer {
   border-top: 1px solid $color-black;
   background: $color-white;
-  //color: $color-grey-dark;
+  color: $color-grey-dark;
   padding: 30px 0;
 
   .partner-logos {
@@ -156,7 +156,7 @@ $height-600:       600px;
     font-weight: 600;
     color: $color-black;
     background: $color-yellow-bright;
-    border-radius: 4px;
+    //border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
 
@@ -173,19 +173,35 @@ $height-600:       600px;
 }
 
 // Partner logos
+// === FOOTER LOGO OPACITY ===
 .footer-logos {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 20px;
-  margin-top: 10px;
+  a {
+    // Default: logos are fully visible
+    opacity: 1;
+    transition: opacity 0.25s ease;
+
+    &:hover,
+    &:focus {
+      // Hover/focus: make only the selected logo transparent
+      opacity: 0.45;
+    }
+
+    &:focus {
+      outline: 2px solid $color-black;
+      outline-offset: 3px;
+    }
+  }
 
   .logo {
-    max-width: 90px;
-    max-height: 60px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    // Default: image itself is fully opaque
+    opacity: 1;
+    transition: opacity 0.25s ease;
+  }
+
+  a:hover .logo,
+  a:focus .logo {
+    // Hover/focus: image becomes transparent
+    opacity: 0.45;
   }
 }
 
