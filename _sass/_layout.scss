@@ -307,6 +307,11 @@
     font-size: 20px;
 }
 
+/********************
+ Stop Tiles
+ Applies to stop buttons 1, 2, 3, 4, 5
+********************/
+
 .post-list {
     margin-left: 0;
     list-style: none;
@@ -316,31 +321,74 @@
         display: inline-block;
         margin: 0;
         line-height: 0;
+        text-align: center;
+        vertical-align: middle;
+
         a {
-            margin: 5px;
-            background-color: $tile-bgcolor;
+            // TILE DEFAULT BACKGROUND: #ebebeb
+            background-color: $color-grey-lighter;
+
+            // TILE BORDER: 1px solid black
+            border: 1px solid $color-black;
+
             background-size: 100%;
-            color: $tile-color;
+            color: $color-black;
             width: $tile-size-large;
             height: $tile-size-large;
             display: inline-block;
             font-size: 20px;
-            //width: $spacing-unit * 3;
-            //height: $spacing-unit * 3;
             border-radius: $tile-border-radius;
             position: relative;
             padding: 0;
-            &:hover, &:active, &:focus {
-                background-color: lighten($tile-bgcolor, 10%);
+            transition: background-color 0.2s ease, color 0.2s ease;
+
+            &:hover,
+            &:active,
+            &:focus {
+                // TILE HOVER BACKGROUND: black
+                background-color: $color-black;
+
+                // TILE HOVER BORDER: remains black
+                border-color: $color-black;
+
+                // TILE HOVER TEXT: white
+                color: $color-white;
             }
+
+            &:focus {
+                // KEYBOARD FOCUS OUTLINE: magenta
+                outline: 2px solid $color-magenta;
+                outline-offset: 3px;
+            }
+
             @include media-query($on-palm) {
                 width: $tile-size;
                 height: $tile-size;
             }
         }
-        text-align: center;
-        vertical-align: center;
     }
+}
+
+.post-item {
+    text-align: center;
+    line-height: 0;
+    display: block;
+    margin-top: $tile-size-large / 2;
+
+    // STOP NUMBER DEFAULT COLOUR: black
+    color: $color-black;
+    transition: color 0.2s ease;
+
+    @include media-query($on-palm) {
+        margin-top: $tile-size / 2;
+    }
+}
+
+// STOP NUMBER HOVER COLOUR: white
+.post-list li a:hover .post-item,
+.post-list li a:active .post-item,
+.post-list li a:focus .post-item {
+    color: $color-white;
 }
 
 
