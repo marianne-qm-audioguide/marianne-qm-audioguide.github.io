@@ -436,7 +436,7 @@
 
 .post-title-episode {
     .post-header-stop-id {
-        color: #ffffff;
+        //color: #ffffff;
         display: inline-block;
         font-size: 26px;
         line-height: 26px;
@@ -446,10 +446,11 @@
         margin: 0 auto;
         //background-color: $tile-bgcolor;
         background-size: 100%;
-        color: $tile-color;
+        //color: $tile-color;
         width: $tile-size-large;
         height: $tile-size-large;
         span {
+            color: $color-black;
             text-align: center;
             line-height: 0;
             display: inline-block;
@@ -460,7 +461,7 @@
     .post-header-section-title {
         //color: lighten($brand-color, 20%);
         display: inline-block;
-        color: $color-black;
+        color: $color-grey-dark;
         font-size: 26px;
         line-height: 26px;
         margin-top: 0;
