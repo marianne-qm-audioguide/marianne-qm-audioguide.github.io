@@ -208,7 +208,7 @@ $height-600:       600px;
 .post-list li a.post-link {
   background-color: $color-white !important; // #ebebeb
   border: 1px solid $color-black !important;
-  color: $color-black !important;
+  color: #ebebeb !important;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -253,3 +253,28 @@ $height-600:       600px;
     justify-content: center;
   }
 }
+
+/********************
+Readable body and transcript text
+Headings remain on your existing Helvetica title font.
+********************/
+
+.post-content,
+.post-content p,
+.post-content li,
+.post-content blockquote,
+.welcome p {
+  font-family: $body-font-family;
+  font-weight: 400;
+}
+
+.post-content {
+  font-size: 19px;
+  line-height: 1.85;
+}
+
+.lang-content.lang-ar {
+  font-family: $body-font-family;
+  line-height: 2;
+}
+
